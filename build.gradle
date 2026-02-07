@@ -24,6 +24,10 @@ apply plugin: 'maven'
 apply plugin: 'signing'
 
 repositories {
+    flatDir {
+        name 'LocalLibs'
+        dir file('libs')
+    }
     maven { // The repo from which to get waila
         name "Mobius Repo"
         url "https://tehnut.info/maven"
