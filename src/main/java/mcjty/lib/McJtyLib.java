@@ -173,15 +173,13 @@ public class McJtyLib implements ModBase {
             }
         }
 
-        @SubscribeEvent
-        public void onEntityConstructing(AttachCapabilitiesEvent<Entity> event){
-            if (event.getObject() instanceof EntityPlayer) {
-                if (!event.getCapabilities().containsKey(PREFERENCES_CAPABILITY_KEY) && !event.getObject().hasCapability(PREFERENCES_CAPABILITY, null)) {
-                    event.addCapability(PREFERENCES_CAPABILITY_KEY, new PreferencesDispatcher());
-                } else {
-                    throw new IllegalStateException(event.getObject().toString());
-                }
-            }
+        @SubscribeEvent  
+        public void onEntityConstructing(AttachCapabilitiesEvent<Entity> event){  
+            if (event.getObject() instanceof EntityPlayer) {  
+                if (!event.getObject().hasCapability(PREFERENCES_CAPABILITY, null)) {  
+                    event.addCapability(PREFERENCES_CAPABILITY_KEY, new PreferencesDispatcher());  
+                }  
+            }  
         }
 
         @SubscribeEvent
